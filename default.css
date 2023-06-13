@@ -1,37 +1,87 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+* {
+	margin: 0;
+}
+
 :root {
-	--color-white: #FAFAFA;
-	--color-black: #222222;
+	--debug-color-outline: #FFAAAA;
+
+	/* SIZES */
+	--size-max-width-main: 1200px;
+	--size-min-width-column-item: 200px;
+}
+
+html {
+	color-scheme: dark light;
 }
 
 body {
-	color: var(--color-white);
-	background-color: var(--color-black);
 	font-family: sans-serif;
 	padding: 10px;
 	margin: 0;
 }
 
 main {
-	max-width: 1200px;
+	max-width: var(--size-max-width-main);
 	margin-inline: auto;
 	padding: 0;
 }
 
+ul {
+	list-style: none;
+	padding: 0;
+}
+
+ul[inline] {
+	display: flex;
+	align-items: center;
+	gap: 10px 10px;
+}
+
+ul[inline] li[push-right] {
+	margin-right: auto;
+}
+
 /* DEBUG */
 grid, column, row {
-	outline: 1px solid #FFAAAA;
+	outline: 1px solid var(--debug-color-outline);
 }
 /* DEBUG */
+
 grid, column, row {
 	display: block;
 }
 
 column {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(var(--size-min-width-column-item), 1fr));
 	gap: 10px 10px;
+	align-items: start;
+}
+
+column:not([no-padding]) {
+	padding-block: 10px;
+}
+
+column [align-center] {
+	align-self: center;
 }
 
 img {
+	display: block;
 	max-width: 100%;
+}
+
+img[height] {
+	object-fit: cover;
+	object-position: center;
+}
+
+img[circle] {
+	border-radius: 50%;
 }
