@@ -1,0 +1,30 @@
+:root {
+	--color-white: #FAFAFA;
+	--color-black: #222222;
+}
+
+body {
+	color: var(--color-white);
+	background-color: var(--color-black);
+	font-family: sans-serif;
+	padding: 10px;
+	margin: 0;
+}
+
+main {
+	max-width: 1200px;
+	margin-inline: auto;
+	padding: 0;
+}
+
+/* DEBUG */
+grid, column, row {
+	outline: 1px solid #FFAAAA;
+}
+/* DEBUG */
+
+column {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	gap: 10px 10px;
+}
