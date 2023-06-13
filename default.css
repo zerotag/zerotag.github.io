@@ -22,6 +22,9 @@ grid, column, row {
 	outline: 1px solid #FFAAAA;
 }
 /* DEBUG */
+grid, column, row {
+	display: block;
+}
 
 column {
 	display: grid;
