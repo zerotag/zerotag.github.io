@@ -1,0 +1,121 @@
+@font-face {
+	font-family: 'Fira Code';
+	src: url('/assets/fonts/FiraCode-VF.woff2') format('woff2');
+  }
+  
+  html {
+	  margin: 0 10px;
+  }
+  
+  body {
+	  padding: 0;
+	  margin: 0;
+	  font-size: 12px;
+	  font-family: "Fira Code", sans-serif;
+	  background-color: #1e1e1e;
+	  color: #cccccc;
+  }
+  
+  main {
+	  max-width: 1000px;
+	  margin-inline: auto;
+  }
+  
+  .col-2 {
+	  display: grid;
+	  grid-template-columns: 1fr 1fr;
+  }
+  
+  .x--data {
+	  padding: 20px 0;
+  }
+  
+  .x--data__title {
+	  font-size: 1.4rem;
+	  font-weight: 800;
+	  margin-block-start: 0;
+  }
+  
+  span.score {
+	  font-size: 1.1rem;
+	  font-weight: 800;
+  }
+  
+  .scenario--list__title {
+	  font-size: 1.2rem;
+	  font-weight: 400;
+	  margin-block-start: 60px;
+	  margin-block-end: 20px;
+  }
+  
+  .scenario--list {
+	  list-style: none;
+	  margin: 0;
+  }
+  
+  .scenario--list li {
+	  padding: 0;
+	  margin-block: 20px;
+	  position: relative;
+  }
+  
+  .scenario--list li:last-child {
+	  margin-bottom: 0;
+  }
+  
+  .scenario--list li::before {
+	  content: "";
+	  position: absolute;
+	  top: 50%;
+	  left: -30px;
+	  width: 18px;
+	  height: 18px;
+	  border-bottom: 2px solid rgb(0, 255, 0);
+	  border-right: 2px solid rgb(0, 255, 0);
+	  transform: rotate(-45deg) translateY(-50%);
+  }
+  
+  .scenario--list li div {
+	  display: grid;
+	  gap: 6px;
+  }
+  
+  .scenario--list description {
+	  font-size: 1.08rem;
+  }
+  
+  .scenario--list score {
+	  font-size: 0.75rem;
+	  font-weight: 700;
+  }
+  
+  @media screen and (max-width: 767px) {
+	  html {
+		  scroll-snap-type: y proximity;
+		  scroll-snap-stop: normal;
+	  }
+  
+	  .x--data {
+		  scroll-snap-align: start;
+		  /*height: 90dvh;*/
+	  }
+	  
+	  .col-2 {
+		  position: relative;
+		  row-gap: 40px;
+		  grid-template-columns: 1fr;
+		  grid-template-rows: 1fr 1fr;
+	  }
+	  
+	  .col-2::after {
+		  content: "";
+		  position: absolute;
+		  top: 50%;
+		  left: 0;
+		  width: 100%;
+		  height: 0;
+		  border-bottom: 2px dashed rgb(0, 255, 0);
+		  transform: translateY(-50%);
+	  }
+  }
+  
