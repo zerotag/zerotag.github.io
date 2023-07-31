@@ -26,10 +26,32 @@ body {
 	margin: 0;
 }
 
+skip {
+	display: block;
+	width: max-content;
+	padding: 20px 0;
+	margin: 0;
+}
+
+skip:not(:focus):not(:focus-within) {
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0,0,0,0);
+	white-space: nowrap;
+	border: 0;
+}
+
 main {
+	padding: 0;
+}
+
+main,
+skip {
 	max-width: var(--size-max-width-main);
 	margin-inline: auto;
-	padding: 0;
 }
 
 ul {
@@ -59,9 +81,13 @@ grid, column, row {
 
 column {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(var(--size-min-width-column-item), 1fr));
+	grid-template-columns: repeat(var(--grid-mode, auto-fit), minmax(var(--size-min-width-column-item), 1fr));
 	gap: 10px 10px;
 	align-items: start;
+}
+
+column[grid-fill] {
+	--grid-mode: auto-fill;
 }
 
 column:not([no-padding]) {
